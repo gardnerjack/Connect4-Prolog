@@ -1,1 +1,1 @@
-# TicTacToe-Prolog
+# Tic Tac Toe in Prolog
