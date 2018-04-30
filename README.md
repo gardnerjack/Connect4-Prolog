@@ -1,1 +1,1 @@
-# Tic Tac Toe in Prolog
+# Connect-Four in Prolog
