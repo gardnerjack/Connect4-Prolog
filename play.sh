@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "\nWelcome to Connect 4\n"
+echo "Play by entering the column you wish to drop your token into (1-7)"
+echo "Remember to put a full-stop at the end of your input\n"
+
+read -p "Ready? " answer
+
+if [ "$answer" = "yes" ] || [ "$answer" = "y" ] ; then
+    echo "\n"
+    swipl connect4.pl
+else
+    echo "Fine"
+fi

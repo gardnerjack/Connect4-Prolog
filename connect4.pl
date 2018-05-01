@@ -39,7 +39,9 @@ play(Board) :-
     show(NewBoard),
     play(NewBoard).
 
-connect4 :-
+begin :-
     init_board(Board),
     show(Board),
     play(Board).
+
+:- initialization(begin).
