@@ -21,7 +21,7 @@ show(Board, N) :-
     N2 is N - 1,
     show(NewBoard, N2).
 
-show_row([], _).
+show_row([], []).
 show_row([[A|B]|C], [B|D]) :-
     write(A),
     write(' '),
@@ -29,10 +29,14 @@ show_row([[A|B]|C], [B|D]) :-
 
 play(Board) :-
     win(Board, 'X'),
-    write("You win!").
+    write("You win!"),
+    nl,
+    halt.
 play(Board) :-
     win(Board, 'O'),
-    write("I win!").
+    write("I win!"),
+    nl,
+    halt.
 play(Board) :-
     write("Enter column: "),
     nl,
