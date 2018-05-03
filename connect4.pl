@@ -28,6 +28,12 @@ show_row([[A|B]|C], [B|D]) :-
     show_row(C, D).
 
 play(Board) :-
+    win(Board, 'X'),
+    write("You win!").
+play(Board) :-
+    win(Board, 'O'),
+    write("I win!").
+play(Board) :-
     write("Enter column: "),
     nl,
     read(N),
