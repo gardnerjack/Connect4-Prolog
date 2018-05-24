@@ -1,5 +1,6 @@
 :- consult(moves).
 :- consult(win_conditions).
+:- consult(opponent).
 
 init_board([
     ['-', '-', '-', '-', '-', '-'],
@@ -28,44 +29,47 @@ show_row([[A|B]|C], [B|D]) :-
     write(' '),
     show_row(C, D).
 
-% X win condition
-play(Board) :-
-    win(Board, 'X'),
-    write("You win!"),
+% Win condition
+play(Board, Player) :-
+    win(Board, Player),
+    write(Player),
+    write(" wins!"),
     nl,
     halt.
 
-% O win condition
-play(Board) :-
-    win(Board, 'O'),
-    write("I win!"),
-    nl,
-    halt.
-
-play(Board) :-
+play(Board, 'X') :-
 
     % Read in column choice
     write("Enter column: "),
     nl,
     read(N),
-    Index is N - 1,
+    Choice is N - 1,
 
     % If valid column choice
     % Make the move and return the new board
     % Else, try again
-    (  valid(Index)
-    -> make_move(Board, Index, 'X', NewBoard)
-    ;  play(Board)
+    (  valid(Choice)
+    -> make_move(Board, Choice, 'X', NewBoard)
+    ;  play(Board, 'X')
     ),
 
-    % Display board and play again
+    % Display board, check for win conditions, and play again
     show(NewBoard),
-    play(NewBoard).
+    play(NewBoard, 'O').
 
+play(Board, 'O') :-
+    write("Opponent chooses column: "),
+    opponent_move(Board, Index),
+    make_move(Board, Index, 'O', NewBoard),
+    Col is Index + 1,
+    write(Col),
+    nl,
+    show(NewBoard),
+    play(NewBoard, 'X').
 
 begin :-
     init_board(Board),
     show(Board),
-    play(Board).
+    play(Board, 'X').
 
 :- initialization(begin).
