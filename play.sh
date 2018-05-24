@@ -8,6 +8,7 @@ read -p "Ready? " answer
 
 if [ "$answer" = "yes" ] || [ "$answer" = "y" ] ; then
     echo "\n"
+    cd connect4
     swipl connect4.pl
 else
     echo "Fine"
