@@ -1,6 +1,6 @@
 # Connect-Four in Prolog
 
-A very simple Prolog logic engine that plays against you in a game of Connect Four.
+A very simple Prolog logical inference engine that plays against you in a game of Connect Four.
 
 ## Usage
 
@@ -18,7 +18,6 @@ sh play.sh
 
 ## TODO
 
-- Prevent board overflow
 - Check diagonal win condition
 - Opponent makes moves towards win condition
 - Blocks users progress towards win condition
