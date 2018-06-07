@@ -24,17 +24,19 @@ show(Board, N) :-
     show(NewBoard, N2).
 
 show_row([], []).
-show_row([[A|B]|C], [B|D]) :-
+show_row([[A | B] | C], [B | D]) :-
     write(A),
     write(' '),
     show_row(C, D).
 
 % Win condition
-play(Board, Player) :-
-    win(Board, Player),
-    write(Player),
-    write(" wins!"),
-    nl,
+play(Board, 'O') :-
+    win(Board, 'X'),
+    writeln("X wins!"),
+    halt.
+play(Board, 'X') :-
+    win(Board, 'O'),
+    writeln("O wins!"),
     halt.
 
 play(Board, 'X') :-
@@ -48,7 +50,7 @@ play(Board, 'X') :-
     % If valid column choice
     % Make the move and return the new board
     % Else, try again
-    (  valid(Choice)
+    (  valid(Board, Choice)
     -> make_move(Board, Choice, 'X', NewBoard)
     ;  play(Board, 'X')
     ),
@@ -62,8 +64,7 @@ play(Board, 'O') :-
     opponent_move(Board, Index),
     make_move(Board, Index, 'O', NewBoard),
     Col is Index + 1,
-    write(Col),
-    nl,
+    writeln(Col),
     show(NewBoard),
     play(NewBoard, 'X').
 
