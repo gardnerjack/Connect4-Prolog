@@ -14,8 +14,6 @@ make_move(Board, N, Player, NewBoard) :-
 % Keep going down until piece can be placed
 enter_column(['-' | Under], Player, ['-' | NewUnder]) :-
     enter_column(Under, Player, NewUnder).
-
 enter_column(['-', A | Under], Player, [Player, A | Under]) :-
     A \== '-'.
-
 enter_column(['-'], Player, [Player]).

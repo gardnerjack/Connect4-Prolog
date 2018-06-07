@@ -18,6 +18,6 @@ sh play.sh
 
 ## TODO
 
-- Check diagonal win condition
 - Opponent makes moves towards win condition
 - Blocks users progress towards win condition
+- More sophisticated opponent with game plan
