@@ -2,6 +2,8 @@
 :- consult(win_conditions).
 :- consult(opponent).
 
+% List of columns
+% Makes it easier to travel down columns
 init_board([
     ['-', '-', '-', '-', '-', '-'],
     ['-', '-', '-', '-', '-', '-'],
