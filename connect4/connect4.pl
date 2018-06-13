@@ -1,3 +1,4 @@
+:- use_module(library(clpfd)).
 :- consult(moves).
 :- consult(win_conditions).
 :- consult(opponent).
@@ -16,20 +17,26 @@ init_board([
 
 % Loop through all 6 rows (columns of Board object) and print separately
 show(Board) :-
-    show(Board, 6),
-    nl.
-show(_, 0).
-show(Board, N) :-
-    show_row(Board, NewBoard),
+    transpose(Board, PrintableBoard),
     nl,
-    N2 is N - 1,
-    show(NewBoard, N2).
+    print_row(PrintableBoard),
+    writeln(' 1 2 3 4 5 6 7 \n').
 
-show_row([], []).
-show_row([[A | B] | C], [B | D]) :-
-    write(A),
-    write(' '),
-    show_row(C, D).
+print_row([]).
+print_row([Row | Rest]) :-
+    write('|'),
+    print_item(Row),
+    nl,
+    print_row(Rest).
+
+print_item([]).
+print_item([Item | Rest]) :-
+    (  Item = '-'
+    -> write(' ')
+    ;  write(Item)
+    ),
+    write('|'),
+    print_item(Rest).
 
 % Win condition
 play(Board, 'O') :-

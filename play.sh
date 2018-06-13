@@ -7,7 +7,6 @@ echo "Remember to put a full-stop at the end of your input\n"
 read -p "Ready? " answer
 
 if [ "$answer" = "yes" ] || [ "$answer" = "y" ] ; then
-    echo "\n"
     cd connect4
     swipl connect4.pl
 else
