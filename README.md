@@ -13,7 +13,7 @@ sh play.sh
 ## Achieved
 
 - Dropping tokens onto board
-- Checking horizontal and vertical win conditions
+- Checking all win conditions
 - Opponent plays winning move, blocks user's winning move, or places randomly
 
 ## TODO
