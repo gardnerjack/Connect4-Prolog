@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "\nWelcome to Connect 4\n"
 echo "Play by entering the column you wish to drop your token into (1-7)"
